@@ -16,10 +16,50 @@
 </head>
 <body>
 <div class="container-fluid">
+    <?php include(__DIR__ . "/partials/header.php"); ?>
+
     <div class="row mt-5">
         <div class="col-lg ">
             <main class="site-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h3 id="message"></h3>
+                    </div>
+                    <div class="row mt-2 mb-2">
+                        <div class="col">
+                            <div class="form-group mb-2 row">
+                                <label for="parameter" class="col-sm-2 col-form-label">Parameter <span
+                                            style="font-style: oblique">a</span></label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="parameter" value="1" step="0.001">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary mb-2" id="parameter-btn">
+                                Nastaviť parameter
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2>Stream 1</h2>
+                            <pre id="stream-3">
 
+                        </pre>
+                        </div>
+                        <div class="col">
+                            <h2>Stream 2</h2>
+                            <pre id="stream-2">
+
+                        </pre>
+                        </div>
+                        <div class="col">
+                            <h2>Stream 3</h2>
+                            <pre id="stream-1">
+
+                        </pre>
+                        </div>
+                    </div>
+                </div>
                 <!-- TODO: MAIN CONTENT -->
 
             </main>
