@@ -22,6 +22,18 @@ class ParameterController
         } else {
             return $result;
         }
+    }
 
+    public function insertParameter(float $parameter): ?string
+    {
+        $stm = $this->conn->prepare("insert into parameters (parameter, timestamp)
+                                            values (:parameter, NOW())");
+
+        if(isset($parameter)){
+            $stm->bindParam(":parameter", $parameter);
+            $stm->execute();
+            return $this->conn->lastInsertId();
+        }
+        return null;
     }
 }

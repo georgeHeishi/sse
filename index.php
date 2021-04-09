@@ -27,41 +27,50 @@
                     </div>
                     <div class="row mt-2 mb-2">
                         <div class="col">
-                            <div class="form-group mb-2 row">
-                                <label for="parameter" class="col-sm-2 col-form-label">Parameter <span
-                                            style="font-style: oblique">a</span></label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="parameter" value="1" step="0.001">
+                            <form id="parameter-uploader" method="post" enctype="multipart/form-data">
+                                <div class="form-group mb-2">
+                                    <div class="form-switch form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="y1" value="y1" checked>
+                                        <label class="form-check-label" for="y1">
+                                            y1
+                                        </label>
+                                    </div>
+                                    <div class="form-switch form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="y2" value="y2" checked>
+                                        <label class="form-check-label" for="y2">
+                                            y2
+                                        </label>
+                                    </div>
+                                    <div class="form-switch form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="y3" value="y3" checked>
+                                        <label class="form-check-label" for="y3">
+                                            y3
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="button" class="btn btn-primary mb-2" id="parameter-btn">
-                                Nastaviť parameter
-                            </button>
+                                <div class="form-group mb-2 row align-items-center">
+                                    <div class="col-auto">
+                                        <input type="number" class="form-control" id="parameter" value="1" step="0.001">
+                                    </div>
+                                    <div class="col-auto">
+                                        <label for="parameter" class="col-sm-2 col-form-label">Parameter</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary mb-2" id="parameter-btn">
+                                    Potvrdiť
+                                </button>
+                            </form>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <h2>Stream 1</h2>
-                            <pre id="stream-3">
+                            <ul id="stream">
 
-                        </pre>
-                        </div>
-                        <div class="col">
-                            <h2>Stream 2</h2>
-                            <pre id="stream-2">
-
-                        </pre>
-                        </div>
-                        <div class="col">
-                            <h2>Stream 3</h2>
-                            <pre id="stream-1">
-
-                        </pre>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <!-- TODO: MAIN CONTENT -->
-
             </main>
         </div>
     </div>

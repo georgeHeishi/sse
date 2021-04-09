@@ -50,3 +50,7 @@ h1, a, p, label, input {
     margin-left: auto;
     margin-right: auto;
 }
+
+ul > li{
+    list-style-type: none;
+}

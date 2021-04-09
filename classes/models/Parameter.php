@@ -4,7 +4,7 @@
 class Parameter
 {
     private int $id;
-    private int $parameter;
+    private float $parameter;
     private string $timestamp;
 
     /**
@@ -24,17 +24,17 @@ class Parameter
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getParameter(): int
+    public function getParameter(): float
     {
         return $this->parameter;
     }
 
     /**
-     * @param int $parameter
+     * @param float $parameter
      */
-    public function setParameter(int $parameter): void
+    public function setParameter(float $parameter): void
     {
         $this->parameter = $parameter;
     }
