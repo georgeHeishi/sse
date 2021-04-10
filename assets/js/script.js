@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const stream = document.getElementById("stream");
     let source = null;
-    let subscribed = false;
 
     parameterButton.addEventListener("click", () => {
         const parameter = document.getElementById("parameter");
@@ -29,32 +28,30 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(request)
             .then((response) => response.json())
             .then((data) => {
+                if (typeof (EventSource) !== "undefined") {
+                    if (source == null) {
+                        source = new EventSource("api/sse.php");
+
+                        source.addEventListener("open", function (e) {
+                            console.log("open");
+                            document.getElementById("message").innerText += "OPENED";
+                        }, false);
+
+                        source.addEventListener("message", function (e) {
+                            stream.innerHTML += "<li>";
+                            stream.innerHTML += e.data;
+                            stream.innerHTML += "</li>";
+                        }, false);
+
+                        source.addEventListener("error", function (e) {
+                            console.log(e);
+                            console.log("error");
+                        }, false);
+                    }
+                } else {
+                    document.getElementById("message").innerHTML = "Sorry, your browser does not support server-sent events...";
+                }
             })
-
-        if (typeof (EventSource) !== "undefined") {
-            if (source == null) {
-                source = new EventSource("api/sse.php");
-
-                source.addEventListener("open", function (e) {
-                    console.log("open");
-                    document.getElementById("message").innerText += "OPENED";
-                }, false);
-
-                source.addEventListener("message", function (e) {
-                    stream.innerHTML += "<li>";
-                    stream.innerHTML += e.data;
-                    stream.innerHTML += "</li>";
-                }, false);
-
-                source.addEventListener("error", function (e) {
-                    console.log(e);
-                    console.log("error");
-                }, false);
-            }
-        } else {
-            document.getElementById("message").innerHTML = "Sorry, your browser does not support server-sent events...";
-        }
-
     });
 });
 
